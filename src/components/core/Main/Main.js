@@ -5,7 +5,15 @@ import {
 	Button,
 	TextField,
 	TypesButton,
+	Select,
 } from 'components/common';
+
+const options = [
+	{value: '1', label: 'Tymofii'},
+	{value: '2', label: 'Mariia'},
+	{value: '3', label: 'Oleksi'},
+
+];
 
 
 class Main extends Component {
@@ -23,6 +31,8 @@ class Main extends Component {
 				</Button>
 
 				<TextField/>
+
+				<Select options={options} defaultValue={2} />
 
 				<h2 className={Styles.title}>Hi!</h2>
 			</div>
