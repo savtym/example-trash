@@ -8,12 +8,7 @@ import {
 	Select,
 } from 'components/common';
 
-const options = [
-	{value: '1', label: 'Tymofii'},
-	{value: '2', label: 'Mariia'},
-	{value: '3', label: 'Oleksi'},
-
-];
+import options from './data';
 
 
 class Main extends Component {

@@ -1,5 +1,7 @@
+@import "styles/colors";
+
 .select {
-  color: blue;
+  color: $blue;
   background-color: transparent;
-  border: 1px solid blue;
+  border: 1px solid $blue;
 }
