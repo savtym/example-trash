@@ -1,4 +1,4 @@
-@import 'styles/colors';
+@import 'styles/_colors.scss';
 
 .wrapper {
   color: red;
@@ -7,4 +7,8 @@
 
 .title {
   color: $gray;
+}
+
+.headline {
+  color: green;
 }
