@@ -5,6 +5,7 @@ import {
 	Button,
 	TextField,
 	TypesButton,
+	Headline,
 } from 'components/common';
 
 
@@ -12,6 +13,8 @@ class Main extends Component {
 	render() {
 		return (
 			<div className={Styles.wrapper}>
+				<h1 className={Styles.headline}>I added new component h1 </h1>
+
 				<span>Hello World!</span>
 
 				<Button type={TypesButton.error}>
