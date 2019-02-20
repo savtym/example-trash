@@ -25,7 +25,7 @@ class Main extends Component {
 				<Button type={TypesButton.success}>
 					<span className={Styles.error}>Error</span>
 				</Button>
-                <Headline >fffffff
+                <Headline >
                     <span>
                         children
                     </span>
