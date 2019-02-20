@@ -5,7 +5,10 @@ import {
 	Button,
 	TextField,
 	TypesButton,
+	Select,
 } from 'components/common';
+
+import { options as SelectOptions } from './data';
 
 
 class Main extends Component {
@@ -23,6 +26,8 @@ class Main extends Component {
 				</Button>
 
 				<TextField/>
+
+				<Select options={SelectOptions} defaultValue={2} />
 
 				<h2 className={Styles.title}>Hi!</h2>
 			</div>
