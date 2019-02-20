@@ -1,4 +1,11 @@
 import React from 'react';
+// import Styles from './Button.module.scss';
+
+
+// export const Types = {
+//     error: Styles.red,
+//     success: Styles.green,
+// };
 
 function Headline(props) {
     const name = 'hi its variable things';
