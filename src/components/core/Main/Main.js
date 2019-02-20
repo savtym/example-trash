@@ -8,7 +8,7 @@ import {
 	Select,
 } from 'components/common';
 
-import options from './data';
+import { options as SelectOptions } from './data';
 
 
 class Main extends Component {
@@ -27,7 +27,7 @@ class Main extends Component {
 
 				<TextField/>
 
-				<Select options={options} defaultValue={2} />
+				<Select options={SelectOptions} defaultValue={2} />
 
 				<h2 className={Styles.title}>Hi!</h2>
 			</div>

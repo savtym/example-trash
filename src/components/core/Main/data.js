@@ -1,4 +1,4 @@
-export default [
+export const options = [
     {
         value: '1',
         label: 'Tymofii',
@@ -11,4 +11,4 @@ export default [
         value: '3',
         label: 'Oleksii',
     },
-]
+];
