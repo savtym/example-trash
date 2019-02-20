@@ -4,18 +4,19 @@ import Styles from './Main.module.scss';
 import {
 	Button,
 	TextField,
-	TypesButton,
-	Headline,
+	TypesButton
 } from 'components/common';
 
+import Headline from 'components/common/Headline/Headline';
 
 class Main extends Component {
 	render() {
 		return (
 			<div className={Styles.wrapper}>
-				<h1 className={Styles.headline}>I added new component h1 </h1>
 
 				<span>Hello World!</span>
+
+                <Headline name="tralalalal" />
 
 				<Button type={TypesButton.error}>
 					<TextField/>
@@ -24,7 +25,11 @@ class Main extends Component {
 				<Button type={TypesButton.success}>
 					<span className={Styles.error}>Error</span>
 				</Button>
-
+                <Headline >fffffff
+                    <span>
+                        children
+                    </span>
+                </Headline>
 				<TextField/>
 
 				<h2 className={Styles.title}>Hi!</h2>

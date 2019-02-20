@@ -1,9 +1,12 @@
 import React from 'react';
 
-function Headline() {
-    return {
-        <h1 className={post_title}/>
-    };
+function Headline(props) {
+    const name = 'hi its variable things';
+    const { children, type } = props;
+
+    return (
+        <h1> {children} Компонента {name} </h1>
+    )
 }
 
 export default Headline;
