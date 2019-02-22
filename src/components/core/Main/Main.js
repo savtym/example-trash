@@ -7,7 +7,8 @@ import {
 	TypesButton,
 	Select,
 	Headline,
-} from '../../common';
+	Checkbox,
+} from 'components/common';
 
 import { options as selectOptions } from './data';
 
@@ -16,6 +17,7 @@ class Main extends Component {
 
 	state = {
 		selected: '2',
+    checked: false,
 	};
 
 	onChangeSelectedName = ({ target }) => {
@@ -27,8 +29,14 @@ class Main extends Component {
 		});
 	};
 
+  onChangeBackground = ({ target }) => {
+    this.setState({
+      checked: target.value,
+    });
+  };
+
 	render() {
-		const { selected } = this.state;
+		const { selected, checked } = this.state;
 
 		const user = selectOptions.find((option) => option.value === selected);
 
@@ -44,11 +52,11 @@ class Main extends Component {
 					<span className={Styles.error}>Error</span>
 				</Button>
 
-                <Headline>
-                    <span>
-                        children
-                    </span>
-                </Headline>
+        <Headline>
+            <span>
+                children
+            </span>
+        </Headline>
 
 				<TextField/>
 
@@ -60,6 +68,10 @@ class Main extends Component {
 
 				<h2 className={Styles.title}>Hi, {user.label}!</h2>
 
+        <Checkbox
+          onChange={this.onChangeBackground}
+          checked={checked}
+        />
 			</div>
 		);
 	}
