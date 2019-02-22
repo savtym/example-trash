@@ -6,13 +6,39 @@ import {
 	TextField,
 	TypesButton,
 	Select,
+	Checkbox,
 } from 'components/common';
 
-import { options as SelectOptions } from './data';
+import { options as selectOptions } from './data';
 
 
 class Main extends Component {
+
+	state = {
+		selected: '2',
+		checked: false,
+	};
+
+	onChangeSelectedName = ({ target }) => {
+		// target is html tag <select />
+		// target.value - selected option
+		// setState: https://reactjs.org/docs/react-component.html#setstate
+		this.setState({
+			selected: target.value,
+		});
+	};
+
+	onChangeBackground = ({ target }) => {
+		this.setState({
+			checked: target.value,
+		});
+	};
+
 	render() {
+		const { selected, checked } = this.state;
+
+		const user = selectOptions.find((option) => option.value === selected);
+
 		return (
 			<div className={Styles.wrapper}>
 				<span>Hello World!</span>
@@ -27,9 +53,18 @@ class Main extends Component {
 
 				<TextField/>
 
-				<Select options={SelectOptions} defaultValue={2} />
+				<Select
+					onChange={this.onChangeSelectedName}
+					options={selectOptions}
+					defaultValue={selected}
+				/>
 
-				<h2 className={Styles.title}>Hi!</h2>
+				<h2 className={Styles.title}>Hi, {user.label}!</h2>
+
+				<Checkbox
+					onChange={this.onChangeBackground}
+					checked={checked}
+				/>
 			</div>
 		);
 	}
