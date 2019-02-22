@@ -16,7 +16,7 @@ class Main extends Component {
 
 				<span>Hello World!</span>
 
-                <Headline name="tralalalal" />
+                <Headline/>
 
 				<Button type={TypesButton.error}>
 					<TextField/>
@@ -25,7 +25,7 @@ class Main extends Component {
 				<Button type={TypesButton.success}>
 					<span className={Styles.error}>Error</span>
 				</Button>
-                <Headline >
+                <Headline>
                     <span>
                         children
                     </span>
