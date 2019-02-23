@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import Styles from './Main.module.scss';
 
 import {
-	Button,
-	TextField,
-	TypesButton
-} from 'components/common';
+    Button,
+    TextField,
+    TypesButton,
+    Select,
+	Headline,
+    } from '../../common';
 
 import Headline from 'components/common/Headline/Headline';
 
@@ -25,11 +27,13 @@ class Main extends Component {
 				<Button type={TypesButton.success}>
 					<span className={Styles.error}>Error</span>
 				</Button>
+
                 <Headline>
                     <span>
                         children
                     </span>
                 </Headline>
+
 				<TextField/>
 
 				<h2 className={Styles.title}>Hi!</h2>
