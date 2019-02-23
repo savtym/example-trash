@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import Styles from './Main.module.scss';
 
 import {
-    Button,
-    TextField,
-    TypesButton,
-    Select,
+	Button,
+	TextField,
+	TypesButton,
+	Select,
 	Headline,
-    } from '../../common';
+} from '../../common';
 
 import { options as selectOptions } from './data';
 
@@ -59,6 +59,7 @@ class Main extends Component {
 				/>
 
 				<h2 className={Styles.title}>Hi, {user.label}!</h2>
+
 			</div>
 		);
 	}
