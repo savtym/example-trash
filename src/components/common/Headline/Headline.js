@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Styles from './Headline.module.scss';
 
 function Headline(props) {
