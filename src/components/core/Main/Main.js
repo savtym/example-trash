@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import Styles from './Main.module.scss';
 
 import {
-	Button,
-	TextField,
-	TypesButton,
-	Select,
-} from 'components/common';
+    Button,
+    TextField,
+    TypesButton,
+    Select,
+	Headline,
+    } from '../../common';
 
 import { options as selectOptions } from './data';
 
@@ -42,6 +43,12 @@ class Main extends Component {
 				<Button type={TypesButton.success}>
 					<span className={Styles.error}>Error</span>
 				</Button>
+
+                <Headline>
+                    <span>
+                        children
+                    </span>
+                </Headline>
 
 				<TextField/>
 
