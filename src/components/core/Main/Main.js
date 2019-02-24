@@ -5,6 +5,7 @@ import {
     Button,
     TextField,
     TypesButton,
+    Select,
     Headline,
 } from '../../common';
 
@@ -51,11 +52,11 @@ class Main extends Component {
 
                 <TextField/>
 
-                {/*<Select*/}
-                    {/*onChange={this.onChangeSelectedName}*/}
-                    {/*options={selectOptions}*/}
-                    {/*defaultValue={selected}*/}
-                {/*/>*/}
+                <Select
+                    onChange={this.onChangeSelectedName}
+                    options={selectOptions}
+                    defaultValue={selected}
+                />
 
                 <h2 className={Styles.title}>Hi, {user.label}!</h2>
             </div>
