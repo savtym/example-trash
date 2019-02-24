@@ -1,0 +1,11 @@
+@import "styles/colors";
+
+.box {
+  display: flex;
+  flex-direction: row;
+  color: $yellow;
+}
+
+.checkbox {
+  padding: 0;
+}

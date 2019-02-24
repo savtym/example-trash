@@ -7,7 +7,8 @@ import {
 	TypesButton,
 	Select,
 	Headline,
-} from '../../common';
+	Checkbox,
+} from 'components/common';
 
 import { options as selectOptions } from './data';
 
@@ -16,6 +17,7 @@ class Main extends Component {
 
 	state = {
 		selected: '2',
+    checkedNames: [],
 	};
 
 	onChangeSelectedName = ({ target }) => {
@@ -27,10 +29,29 @@ class Main extends Component {
 		});
 	};
 
+  onChangeCheckbox = ({ target }) => {
+    const { checked, value } = target;
+    const { checkedNames } = this.state;
+
+		this.setState({
+			checkedNames: checked
+				? [
+					...checkedNames,
+					selectOptions.find((option) => option.value === value),
+				]
+				: checkedNames.filter((option) => option.value !== value)
+		});
+  };
+
 	render() {
-		const { selected } = this.state;
+		const {
+			selected,
+			checked,
+			checkedNames,
+		} = this.state;
 
 		const user = selectOptions.find((option) => option.value === selected);
+		const names = checkedNames.map(({label})=> (label)).join(' ,');
 
 		return (
 			<div className={Styles.wrapper}>
@@ -44,11 +65,11 @@ class Main extends Component {
 					<span className={Styles.error}>Error</span>
 				</Button>
 
-                <Headline>
-                    <span>
-                        children
-                    </span>
-                </Headline>
+        <Headline>
+            <span>
+                children
+            </span>
+        </Headline>
 
 				<TextField/>
 
@@ -60,6 +81,19 @@ class Main extends Component {
 
 				<h2 className={Styles.title}>Hi, {user.label}!</h2>
 
+				{selectOptions.map(({ label, value }) => (
+					<Checkbox
+						key={label}
+						name={label}
+						value={value}
+						checked={checked}
+						onChange={this.onChangeCheckbox}
+					/>
+				))}
+
+				<h2 className={Styles.title}>
+					You selected: {names ? names : 'nothing'}!
+				</h2>
 			</div>
 		);
 	}
