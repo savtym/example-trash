@@ -17,7 +17,7 @@ class Main extends Component {
 
 	state = {
 		selected: '2',
-    checked: false,
+    checkedNames: [],
 	};
 
 	onChangeSelectedName = ({ target }) => {
@@ -29,16 +29,29 @@ class Main extends Component {
 		});
 	};
 
-  onChangeBackground = ({ target }) => {
-    this.setState({
-      checked: target.value,
-    });
+  onChangeCheckbox = ({ target }) => {
+    const { checked, value } = target;
+    const { checkedNames } = this.state;
+
+		this.setState({
+			checkedNames: checked
+				? [
+					...checkedNames,
+					selectOptions.find((option) => option.value === value),
+				]
+				: checkedNames.filter((option) => option.value !== value)
+		});
   };
 
 	render() {
-		const { selected, checked } = this.state;
+		const {
+			selected,
+			checked,
+			checkedNames,
+		} = this.state;
 
 		const user = selectOptions.find((option) => option.value === selected);
+		const names = checkedNames.map(({label})=> (label)).join(' ,');
 
 		return (
 			<div className={Styles.wrapper}>
@@ -68,10 +81,19 @@ class Main extends Component {
 
 				<h2 className={Styles.title}>Hi, {user.label}!</h2>
 
-        <Checkbox
-          onChange={this.onChangeBackground}
-          checked={checked}
-        />
+				{selectOptions.map(({ label, value }) => (
+					<Checkbox
+						key={label}
+						name={label}
+						value={value}
+						checked={checked}
+						onChange={this.onChangeCheckbox}
+					/>
+				))}
+
+				<h2 className={Styles.title}>
+					You selected: {names ? names : 'nothing'}!
+				</h2>
 			</div>
 		);
 	}
