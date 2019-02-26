@@ -8,6 +8,7 @@ import {
 	Select,
 	Headline,
 	Checkbox,
+    Mark,
 } from 'components/common';
 
 
@@ -67,11 +68,14 @@ class Main extends Component {
                     <span className={Styles.error}>Error</span>
                 </Button>
 
-        <Headline>
-            <span>
-                children
-            </span>
-        </Headline>
+                <Headline>
+                    <span>
+                        children
+                    </span>
+                </Headline>
+
+                <Mark>
+                </Mark>
 
                 <TextField/>
 
