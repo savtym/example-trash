@@ -2,13 +2,11 @@ import React from 'react';
 
 import Styles from './Mark.module.scss';
 
-function Mark(props) {
+function Mark({ onChange, value }) {
 
     return (
-        <label>
-            <input value={props.value} onChange={props.onMarkChange}
+            <input className={Styles.input} value={value} onChange={onChange}
             />
-        </label>
     );
 }
 

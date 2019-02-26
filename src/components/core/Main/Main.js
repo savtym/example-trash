@@ -20,7 +20,7 @@ class Main extends Component {
 	state = {
 		selected: '2',
 		checkedNames: [],
-		markInputValue: null
+		markInputValue: null,
 	};
 
 	onChangeSelectedName = ({ target }) => {
@@ -31,7 +31,6 @@ class Main extends Component {
 			selected: target.value,
 		});
 	};
-
 
 	onChangeCheckbox = ({ target }) => {
 		const { checked, value } = target;
@@ -48,8 +47,10 @@ class Main extends Component {
 	};
 
 	onMarkChange = ({ target }) => {
-		this.setState({ markInputValue: target.value })
-	}
+		this.setState({
+			markInputValue: target.value
+		})
+	};
 
 	render() {
 		const {
@@ -80,11 +81,11 @@ class Main extends Component {
                     </span>
 				</Headline>
 
-				<Mark value={markInputValue} onMarkChange={this.onMarkChange}>
+				<Mark value={markInputValue} onChange={this.onMarkChange}>
 				</Mark>
 
 				<div className={Styles.input_field}>
-					Title: <span className={Styles.title}>{markInputValue} </span>
+					Title: <span className={Styles.title}>{markInputValue}</span>
 				</div>
 
 				<TextField />
