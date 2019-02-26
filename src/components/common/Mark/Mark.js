@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import Styles from './Mark.module.scss';
+import Styles from './Mark.module.scss';
 
 function Mark(props) {
 

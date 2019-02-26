@@ -80,12 +80,12 @@ class Main extends Component {
                     </span>
 				</Headline>
 
-				<div>
-					{markInputValue}
-				</div>
-
 				<Mark value={markInputValue} onMarkChange={this.onMarkChange}>
 				</Mark>
+
+				<div className={Styles.input_field}>
+					Title: <span className={Styles.title}>{markInputValue} </span>
+				</div>
 
 				<TextField />
 
