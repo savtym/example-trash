@@ -2,21 +2,24 @@ import React, { Component } from 'react';
 import Styles from './Main.module.scss';
 
 import {
-    Button,
-    TextField,
-    TypesButton,
-    Select,
-    Headline,
-} from '../../common';
+	Button,
+	TextField,
+	TypesButton,
+	Select,
+	Headline,
+	Checkbox,
+} from 'components/common';
+
 
 import { options as selectOptions } from './data';
 
 
 class Main extends Component {
 
-    state = {
-        selected: '2',
-    };
+	state = {
+		selected: '2',
+    checkedNames: [],
+	};
 
     onChangeSelectedName = ({ target }) => {
         // target is html tag <select />
@@ -27,10 +30,30 @@ class Main extends Component {
         });
     };
 
-    render() {
-        const { selected } = this.state;
 
-        const user = selectOptions.find((option) => option.value === selected);
+  onChangeCheckbox = ({ target }) => {
+    const { checked, value } = target;
+    const { checkedNames } = this.state;
+
+		this.setState({
+			checkedNames: checked
+				? [
+					...checkedNames,
+					selectOptions.find((option) => option.value === value),
+				]
+				: checkedNames.filter((option) => option.value !== value)
+		});
+  };
+
+	render() {
+		const {
+			selected,
+			checked,
+			checkedNames,
+		} = this.state;
+
+		const user = selectOptions.find((option) => option.value === selected);
+		const names = checkedNames.map(({label})=> (label)).join(' ,');
 
         return (
             <div className={Styles.wrapper}>
@@ -44,11 +67,11 @@ class Main extends Component {
                     <span className={Styles.error}>Error</span>
                 </Button>
 
-                <Headline>
-                    <span>
-                        children
-                    </span>
-                </Headline>
+        <Headline>
+            <span>
+                children
+            </span>
+        </Headline>
 
                 <TextField/>
 
@@ -58,10 +81,24 @@ class Main extends Component {
                     defaultValue={selected}
                 />
 
-                <h2 className={Styles.title}>Hi, {user.label}!</h2>
-            </div>
-        );
-    }
+				<h2 className={Styles.title}>Hi, {user.label}!</h2>
+
+				{selectOptions.map(({ label, value }) => (
+					<Checkbox
+						key={label}
+						name={label}
+						value={value}
+						checked={checked}
+						onChange={this.onChangeCheckbox}
+					/>
+				))}
+
+				<h2 className={Styles.title}>
+					You selected: {names ? names : 'nothing'}!
+				</h2>
+			</div>
+		);
+	}
 }
 
 
