@@ -12,7 +12,7 @@ import {
 } from 'components/common';
 
 
-import {options as selectOptions} from './data';
+import { options as selectOptions } from './data';
 
 
 class Main extends Component {
@@ -78,7 +78,7 @@ class Main extends Component {
         <Headline>
 					<span>
 						children
-                    </span>
+					</span>
         </Headline>
 
         <Mark value={markInputValue} onChange={this.onMarkChange}>
