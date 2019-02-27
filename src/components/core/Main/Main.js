@@ -12,7 +12,7 @@ import {
 } from 'components/common';
 
 
-import { options as selectOptions } from './data';
+import {options as selectOptions} from './data';
 
 
 class Main extends Component {
@@ -81,8 +81,10 @@ class Main extends Component {
 					</span>
         </Headline>
 
-        <Input value={InputValue} onChange={this.onInputChange}>
-        </Input>
+        <Input
+          value={InputValue}
+          onChange={this.onInputChange}
+        />
 
         <div className={Styles.input_field}>
           Title: <span className={Styles.title}>{InputValue}</span>
