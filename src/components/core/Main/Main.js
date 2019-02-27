@@ -8,7 +8,9 @@ import {
 	Select,
 	Headline,
 	Checkbox,
+	Mark,
 } from 'components/common';
+
 
 import { options as selectOptions } from './data';
 
@@ -17,7 +19,8 @@ class Main extends Component {
 
 	state = {
 		selected: '2',
-    checkedNames: [],
+		checkedNames: [],
+		markInputValue: null,
 	};
 
 	onChangeSelectedName = ({ target }) => {
@@ -29,9 +32,9 @@ class Main extends Component {
 		});
 	};
 
-  onChangeCheckbox = ({ target }) => {
-    const { checked, value } = target;
-    const { checkedNames } = this.state;
+	onChangeCheckbox = ({ target }) => {
+		const { checked, value } = target;
+		const { checkedNames } = this.state;
 
 		this.setState({
 			checkedNames: checked
@@ -41,37 +44,51 @@ class Main extends Component {
 				]
 				: checkedNames.filter((option) => option.value !== value)
 		});
-  };
+	};
+
+	onMarkChange = ({ target }) => {
+		this.setState({
+			markInputValue: target.value,
+		});
+	};
 
 	render() {
 		const {
 			selected,
 			checked,
 			checkedNames,
+			markInputValue
 		} = this.state;
 
 		const user = selectOptions.find((option) => option.value === selected);
-		const names = checkedNames.map(({label})=> (label)).join(' ,');
+		const names = checkedNames.map(({ label }) => label).join(' ,');
 
 		return (
 			<div className={Styles.wrapper}>
 				<span>Hello World!</span>
 
 				<Button type={TypesButton.error}>
-					<TextField/>
+					<TextField />
 				</Button>
 
 				<Button type={TypesButton.success}>
 					<span className={Styles.error}>Error</span>
 				</Button>
 
-        <Headline>
-            <span>
-                children
-            </span>
-        </Headline>
+				<Headline>
+					<span>
+						children
+                    </span>
+				</Headline>
 
-				<TextField/>
+				<Mark value={markInputValue} onChange={this.onMarkChange}>
+				</Mark>
+
+				<div className={Styles.input_field}>
+					Title: <span className={Styles.title}>{markInputValue}</span>
+				</div>
+
+				<TextField />
 
 				<Select
 					onChange={this.onChangeSelectedName}
