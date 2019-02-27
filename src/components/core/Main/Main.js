@@ -8,7 +8,7 @@ import {
   Select,
   Headline,
   Checkbox,
-  Mark,
+  Input,
 } from 'components/common';
 
 
@@ -46,9 +46,9 @@ class Main extends Component {
     });
   };
 
-  onMarkChange = ({target}) => {
+  onInputChange = ({target}) => {
     this.setState({
-      markInputValue: target.value,
+      InputValue: target.value,
     });
   };
 
@@ -57,7 +57,7 @@ class Main extends Component {
       selected,
       checked,
       checkedNames,
-      markInputValue
+      InputValue
     } = this.state;
 
     const user = selectOptions.find((option) => option.value === selected);
@@ -81,11 +81,11 @@ class Main extends Component {
 					</span>
         </Headline>
 
-        <Mark value={markInputValue} onChange={this.onMarkChange}>
-        </Mark>
+        <Input value={InputValue} onChange={this.onInputChange}>
+        </Input>
 
         <div className={Styles.input_field}>
-          Title: <span className={Styles.title}>{markInputValue}</span>
+          Title: <span className={Styles.title}>{InputValue}</span>
         </div>
 
         <TextField/>
