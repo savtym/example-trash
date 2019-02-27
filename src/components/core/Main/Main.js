@@ -48,8 +48,8 @@ class Main extends Component {
 
 	onMarkChange = ({ target }) => {
 		this.setState({
-			markInputValue: target.value
-		})
+			markInputValue: target.value,
+		});
 	};
 
 	render() {
@@ -61,7 +61,7 @@ class Main extends Component {
 		} = this.state;
 
 		const user = selectOptions.find((option) => option.value === selected);
-		const names = checkedNames.map(({ label }) => (label)).join(' ,');
+		const names = checkedNames.map(({ label }) => label).join(' ,');
 
 		return (
 			<div className={Styles.wrapper}>
