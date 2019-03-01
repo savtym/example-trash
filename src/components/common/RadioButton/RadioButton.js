@@ -3,7 +3,11 @@ import React from 'react';
 import Styles from './RadioButton.module.scss';
 
 function RadioButton (props) {
-  const { onChange, isChecked, label } = props;
+  const {
+    onChange,
+    isChecked,
+    label
+  } = props;
 
   return (
     <div className={Styles.radio}>
@@ -12,7 +16,8 @@ function RadioButton (props) {
           type="radio"
           value={label}
           checked={isChecked}
-          onChange={onChange} />
+          onChange={onChange}
+        />
         {label}
       </label>
     </div>

@@ -25,7 +25,7 @@ class Main extends Component {
     checkedRadio: 'Tymofii',
   };
 
-  onChangeSelectedName = ({target}) => {
+  onChangeSelectedName = ({ target }) => {
     // target is html tag <select />
     // target.value - selected option
     // setState: https://reactjs.org/docs/react-component.html#setstate
@@ -34,7 +34,7 @@ class Main extends Component {
     });
   };
 
-  onChangeCheckbox = ({target}) => {
+  onChangeCheckbox = ({ target }) => {
     const {checked, value} = target;
     const {checkedNames} = this.state;
 
@@ -48,15 +48,13 @@ class Main extends Component {
     });
   };
 
-  onInputChange = ({target}) => {
+  onInputChange = ({ target }) => {
     this.setState({
       InputValue: target.value,
     });
   };
 
-  onRadioChange = ({target}) => {
-    console.log(target.checked);
-
+  onRadioChange = ({ target }) => {
     this.setState({
       checkedRadio: target.value,
     });
@@ -70,7 +68,6 @@ class Main extends Component {
       InputValue,
       checkedRadio,
     } = this.state;
-    console.log(checkedRadio);
 
     const user = selectOptions.find((option) => option.value === selected);
     const names = checkedNames.map(({label}) => label).join(' ,');
@@ -129,6 +126,7 @@ class Main extends Component {
 
         <form className={Styles.form}>
           <span className={Styles.description}>Please, select one option</span>
+
           {selectOptions.map(({ label, value }) => (
             <RadioButton
               key={value}
@@ -137,8 +135,9 @@ class Main extends Component {
               isChecked={checkedRadio === label}
             />
           ))}
+
           <h2 className={Styles.title}>
-            You selected: {checkedRadio ? checkedRadio : 'nothing'}!
+            You selected: {checkedRadio}!
           </h2>
         </form>
       </div>
