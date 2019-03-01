@@ -9,6 +9,7 @@ import {
   Headline,
   Checkbox,
   Input,
+  RadioButton
 } from 'components/common';
 
 
@@ -21,6 +22,7 @@ class Main extends Component {
     selected: '2',
     checkedNames: [],
     markInputValue: null,
+    checkedRadio: 'Tymofii',
   };
 
   onChangeSelectedName = ({target}) => {
@@ -52,16 +54,27 @@ class Main extends Component {
     });
   };
 
+  onRadioChange = ({target}) => {
+    console.log(target.checked);
+
+    this.setState({
+      checkedRadio: target.value,
+    });
+  };
+
   render() {
     const {
       selected,
       checked,
       checkedNames,
-      InputValue
+      InputValue,
+      checkedRadio,
     } = this.state;
+    console.log(checkedRadio);
 
     const user = selectOptions.find((option) => option.value === selected);
     const names = checkedNames.map(({label}) => label).join(' ,');
+
 
     return (
       <div className={Styles.wrapper}>
@@ -113,6 +126,21 @@ class Main extends Component {
         <h2 className={Styles.title}>
           You selected: {names ? names : 'nothing'}!
         </h2>
+
+        <form className={Styles.form}>
+          <span className={Styles.description}>Please, select one option</span>
+          {selectOptions.map(({ label, value }) => (
+            <RadioButton
+              key={value}
+              label={label}
+              onChange={this.onRadioChange}
+              isChecked={checkedRadio === label}
+            />
+          ))}
+          <h2 className={Styles.title}>
+            You selected: {checkedRadio ? checkedRadio : 'nothing'}!
+          </h2>
+        </form>
       </div>
     );
   }
