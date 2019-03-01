@@ -7,6 +7,7 @@ function Textarea( props ) {
 
 	return (
 		<textarea
+			placeholder="Your text"
 			value={value}
 			onChange={onChange}
 		/>
