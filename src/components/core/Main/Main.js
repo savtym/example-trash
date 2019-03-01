@@ -9,6 +9,7 @@ import {
   Headline,
   Checkbox,
   Input,
+	Textarea,
 } from 'components/common';
 
 
@@ -21,6 +22,7 @@ class Main extends Component {
     selected: '2',
     checkedNames: [],
     markInputValue: null,
+		textareaValue: "text",
   };
 
   onChangeSelectedName = ({target}) => {
@@ -52,12 +54,20 @@ class Main extends Component {
     });
   };
 
+	onTextareaChange = ({target}) => {
+		this.setState({
+			TextareaValue: target.value,
+		});
+	};
+
+
   render() {
     const {
       selected,
       checked,
       checkedNames,
-      InputValue
+      InputValue,
+			TextareaValue,
     } = this.state;
 
     const user = selectOptions.find((option) => option.value === selected);
@@ -74,6 +84,18 @@ class Main extends Component {
         <Button type={TypesButton.success}>
           <span className={Styles.error}>Error</span>
         </Button>
+
+				<Textarea
+					onChange={this.onTextareaChange}
+					value={TextareaValue}
+				/>
+
+				<div>Textarea:
+					<span className={Styles.text}>
+						{TextareaValue}
+					</span>
+				</div>
+
 
         <Headline>
 					<span>
