@@ -9,6 +9,7 @@ import {
   Headline,
   Checkbox,
   Input,
+  RadioButton
 } from 'components/common';
 
 
@@ -21,9 +22,10 @@ class Main extends Component {
     selected: '2',
     checkedNames: [],
     markInputValue: null,
+    checkedRadio: 'Tymofii',
   };
 
-  onChangeSelectedName = ({target}) => {
+  onChangeSelectedName = ({ target }) => {
     // target is html tag <select />
     // target.value - selected option
     // setState: https://reactjs.org/docs/react-component.html#setstate
@@ -32,7 +34,7 @@ class Main extends Component {
     });
   };
 
-  onChangeCheckbox = ({target}) => {
+  onChangeCheckbox = ({ target }) => {
     const {checked, value} = target;
     const {checkedNames} = this.state;
 
@@ -46,9 +48,15 @@ class Main extends Component {
     });
   };
 
-  onInputChange = ({target}) => {
+  onInputChange = ({ target }) => {
     this.setState({
       InputValue: target.value,
+    });
+  };
+
+  onRadioChange = ({ target }) => {
+    this.setState({
+      checkedRadio: target.value,
     });
   };
 
@@ -57,11 +65,13 @@ class Main extends Component {
       selected,
       checked,
       checkedNames,
-      InputValue
+      InputValue,
+      checkedRadio,
     } = this.state;
 
     const user = selectOptions.find((option) => option.value === selected);
     const names = checkedNames.map(({label}) => label).join(' ,');
+
 
     return (
       <div className={Styles.wrapper}>
@@ -113,6 +123,23 @@ class Main extends Component {
         <h2 className={Styles.title}>
           You selected: {names ? names : 'nothing'}!
         </h2>
+
+        <form className={Styles.form}>
+          <span className={Styles.description}>Please, select one option</span>
+
+          {selectOptions.map(({ label, value }) => (
+            <RadioButton
+              key={value}
+              label={label}
+              onChange={this.onRadioChange}
+              isChecked={checkedRadio === label}
+            />
+          ))}
+
+          <h2 className={Styles.title}>
+            You selected: {checkedRadio}!
+          </h2>
+        </form>
       </div>
     );
   }
