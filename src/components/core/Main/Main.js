@@ -16,7 +16,6 @@ import {
 import {options as selectOptions} from './data';
 import Clock from "../../common/Clock/Clock";
 
-
 class Main extends Component {
 
   state = {

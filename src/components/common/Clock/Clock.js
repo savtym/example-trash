@@ -1,13 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import Styles from './Clock.module.scss';
 
-
-class ClockComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {date: new Date()};
-  }
+class Clock extends Component {
+  state = {
+    date: new Date(),
+  };
 
   componentDidMount() {
     this.timerID = setInterval(
@@ -22,28 +20,18 @@ class ClockComponent extends React.Component {
 
   tick() {
     this.setState({
-      date: new Date()
+      date: new Date(),
     });
   }
 
   render() {
     return (
-      <div>
-        <h1>Hello, world!</h1>
+      <div className={Styles.clock}>
+        <h2>Hello, world!</h2>
         <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
       </div>
     );
   }
-}
-
-function Clock (props) {
-    // const { children } = props;
-
-    return (
-        <h1 className={Styles.clock}>
-            <ClockComponent/>
-        </h1>
-    )
 }
 
 export default Clock;
