@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Styles from './Main.module.scss';
 
 import {
@@ -9,11 +9,12 @@ import {
   Headline,
   Checkbox,
   Input,
-	Textarea,
+  Textarea,
 } from 'components/common';
 
 
 import {options as selectOptions} from './data';
+import Clock from "../../common/Clock/Clock";
 
 
 class Main extends Component {
@@ -22,7 +23,7 @@ class Main extends Component {
     selected: '2',
     checkedNames: [],
     markInputValue: null,
-		textareaValue: "text",
+    textareaValue: "text",
   };
 
   onChangeSelectedName = ({target}) => {
@@ -54,11 +55,11 @@ class Main extends Component {
     });
   };
 
-	onTextareaChange = ({target}) => {
-		this.setState({
-			TextareaValue: target.value,
-		});
-	};
+  onTextareaChange = ({target}) => {
+    this.setState({
+      TextareaValue: target.value,
+    });
+  };
 
 
   render() {
@@ -67,7 +68,7 @@ class Main extends Component {
       checked,
       checkedNames,
       InputValue,
-			TextareaValue,
+      TextareaValue,
     } = this.state;
 
     const user = selectOptions.find((option) => option.value === selected);
@@ -85,16 +86,16 @@ class Main extends Component {
           <span className={Styles.error}>Error</span>
         </Button>
 
-				<Textarea
-					onChange={this.onTextareaChange}
-					value={TextareaValue}
-				/>
+        <Textarea
+          onChange={this.onTextareaChange}
+          value={TextareaValue}
+        />
 
-				<div>Textarea:
-					<span className={Styles.text}>
+        <div>Textarea:
+          <span className={Styles.text}>
 						{TextareaValue}
 					</span>
-				</div>
+        </div>
 
 
         <Headline>
@@ -102,6 +103,12 @@ class Main extends Component {
 						children
 					</span>
         </Headline>
+
+        <Clock/>
+
+        <div id="root">
+        </div>
+
 
         <Input
           value={InputValue}

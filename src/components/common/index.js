@@ -5,4 +5,5 @@ export { default as Headline } from './Headline';
 export { default as Checkbox } from './Checkbox';
 export { default as Input } from './Input';
 export { default as Textarea } from './Textarea';
+export { default as Clock } from './Clock';
 
