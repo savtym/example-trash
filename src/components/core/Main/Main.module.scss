@@ -23,6 +23,15 @@
 .text {
 	color: green;
 	margin-left: 15px;
+  
+.form {
+  padding-top: 20px;
+}
+
+.description {
+  display: inline-block;
+  padding: 10px 0;
+  color: $blue;
 }
 
 
