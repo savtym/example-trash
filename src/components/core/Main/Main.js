@@ -48,18 +48,17 @@ class Main extends Component {
     });
   };
 
-  onInputChange = ({target}) => {
+  onInputChange = ({ target }) => {
     this.setState({
       InputValue: target.value,
     });
   };
 
-  onTextareaChange = ({target}) => {
+  onTextareaChange = ({ target }) => {
     this.setState({
       TextareaValue: target.value,
     });
   };
-
 
   render() {
     const {
@@ -90,12 +89,12 @@ class Main extends Component {
           value={TextareaValue}
         />
 
-        <div>Textarea:
+        <div>
+          Textarea:
           <span className={Styles.text}>
 						{TextareaValue}
 					</span>
         </div>
-
 
         <Headline>
 					<span>
@@ -104,10 +103,6 @@ class Main extends Component {
         </Headline>
 
         <Clock/>
-
-        <div id="root">
-        </div>
-
 
         <Input
           value={InputValue}

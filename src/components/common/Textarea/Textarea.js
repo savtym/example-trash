@@ -1,8 +1,6 @@
 import React from 'react';
 
-// import Styles from './Textarea.module.scss';
-
-function Textarea( props ) {
+function Textarea(props) {
 	const { onChange, value } = props;
 
 	return (
