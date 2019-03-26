@@ -23,7 +23,7 @@ class Main extends Component {
     selected: '2',
     checkedNames: [],
     markInputValue: null,
-    areaValue: "text",
+    description: "",
     checkedRadio: 'Tymofii',
   };
 
@@ -58,7 +58,7 @@ class Main extends Component {
 
   onTextareaChange = ({ target }) => {
     this.setState({
-      typedText: target.value,
+      description: target.value,
     });
   };
 
@@ -74,7 +74,7 @@ class Main extends Component {
       checked,
       checkedNames,
       InputValue,
-      AreaValue,
+      description,
       checkedRadio,
     } = this.state;
 
@@ -96,13 +96,13 @@ class Main extends Component {
 
         <Textarea
           onChange={this.onTextareaChange}
-          value={AreaValue}
+          value={description}
         />
 
         <div>
           Textarea:
           <span className={Styles.text}>
-						{AreaValue}
+						{description}
 					</span>
         </div>
 
