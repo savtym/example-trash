@@ -10,12 +10,12 @@ import {
   Checkbox,
   Input,
   Textarea,
-  RadioButton
+  RadioButton,
+  Clock,
 } from 'components/common';
 
 
 import {options as selectOptions} from './data';
-import Clock from "../../common/Clock/Clock";
 
 class Main extends Component {
 
