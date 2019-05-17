@@ -23,7 +23,7 @@ class Main extends Component {
     selected: '2',
     checkedNames: [],
     markInputValue: null,
-    description: "",
+    description: '',
     checkedRadio: 'Tymofii',
   };
 
