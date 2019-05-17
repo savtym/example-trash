@@ -9,12 +9,13 @@ import {
   Headline,
   Checkbox,
   Input,
-  RadioButton
+  Textarea,
+  RadioButton,
+  Clock,
 } from 'components/common';
 
 
 import {options as selectOptions} from './data';
-
 
 class Main extends Component {
 
@@ -22,6 +23,7 @@ class Main extends Component {
     selected: '2',
     checkedNames: [],
     markInputValue: null,
+    description: '',
     checkedRadio: 'Tymofii',
   };
 
@@ -54,6 +56,12 @@ class Main extends Component {
     });
   };
 
+  onTextareaChange = ({ target }) => {
+    this.setState({
+      description: target.value,
+    });
+  };
+
   onRadioChange = ({ target }) => {
     this.setState({
       checkedRadio: target.value,
@@ -66,6 +74,7 @@ class Main extends Component {
       checked,
       checkedNames,
       InputValue,
+      description,
       checkedRadio,
     } = this.state;
 
@@ -85,11 +94,25 @@ class Main extends Component {
           <span className={Styles.error}>Error</span>
         </Button>
 
+        <Textarea
+          onChange={this.onTextareaChange}
+          value={description}
+        />
+
+        <div>
+          Textarea:
+          <span className={Styles.text}>
+						{description}
+					</span>
+        </div>
+
         <Headline>
 					<span>
 						children
 					</span>
         </Headline>
+
+        <Clock/>
 
         <Input
           value={InputValue}
